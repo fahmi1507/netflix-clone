@@ -20,11 +20,11 @@ const Row = ({ data }) => {
   return (
     <div className="row">
       {/* title */}
-      <h4>{data.category}</h4>
+      <h3>{data.category}</h3>
 
       <div className="row__posters">
         {movies.map((movie) => (
-          <img className="poster" key={movie.id} src={imgUrl + movie.poster_path} alt={movie.title}></img>
+          <img className={`poster ${data.category === "Netflix Originals" && "poster__large"}`} key={movie.id} src={`${imgUrl}${data.category === "Netflix Originals" ? movie.poster_path : movie.backdrop_path}`} alt={movie.title}></img>
         ))}
       </div>
 
